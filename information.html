@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Latest heat news, advisories and city announcements.">
+<title>Information | HeatJumper</title>
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="info">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <div class="search" role="search"><label class="sr" for="q">Search HeatJumper</label><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search anything…" autocomplete="off"><ul id="results" hidden></ul></div>
+  <h1>“We Care, We love, We Save”</h1>
+  <a class="btn green loginlink" id="loginlink" href="index.html">Log out</a>
+  <img class="logo" src="logo.svg" alt="HEAT logo">
+</header>
+<nav class="navbar" aria-label="Main navigation">
+  <a class="wordmark" href="home.html">HEAT</a>
+  <ul id="menu"><li><a class="link" href="home.html">Home</a></li><li><a class="link" href="heatmap.html">Heat Map</a></li><li><a class="link" href="cooling.html">Cooling Station</a></li><li><a class="link active" href="information.html" aria-current="page">Information</a></li><li><a class="link" href="action.html">Action</a></li></ul>
+</nav>
+<main id="content">
+<section class="panel"><h2>Latest Heat News &amp; Advisories</h2><p id="newsstatus" aria-live="polite">Loading latest news…</p><div id="news"></div></section>
+<section class="panel"><h2>Heat Safety</h2><div class="grid">
+<div class="tile"><h3>Hydrate</h3><p>Drink water regularly; avoid sugary or alcoholic drinks.</p></div>
+<div class="tile"><h3>Plan your day</h3><p>Avoid strenuous work from 10AM to 4PM.</p></div>
+<div class="tile"><h3>Never leave anyone in a parked car</h3><p>Cabin temperature rises within minutes.</p></div></div></section>
+<section class="panel" id="contact"></section>
+<section class="panel" id="refs"><h2>References</h2><ul><li>PAGASA – heat index advisories (pagasa.dost.gov.ph)</li><li>OpenStreetMap contributors – map data</li><li>Open-Meteo – weather API</li></ul></section>
+</main>
+<footer><a href="home.html">HeatJumper</a> • <a href="home.html#about">About</a> • <a href="action.html#contact">Contact</a> • <a href="information.html#refs">References</a></footer>
+<script src="search-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

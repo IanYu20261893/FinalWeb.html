@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin Dashboard | HeatJumper</title>
+<link rel="icon" href="logo.svg"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body data-page="admin"><header class="topbar"><h1>HeatJumper Admin Dashboard</h1><img class="logo" src="logo.svg" alt="HEAT logo"></header>
+<main>
+<section class="panel" id="login"><h2>City Administrator Login</h2><form id="lf"><label for="pw">Password (demo: admin123)</label><input id="pw" type="password" required><button class="btn green">Log in</button></form></section>
+<div id="dash" hidden>
+<section class="panel"><h2>Update heat level</h2><form id="f-heat"><select id="city"></select><input id="temp" type="number" placeholder="Temperature °C" required><button class="btn orange">Update</button></form></section>
+<section class="panel"><h2>Publish news</h2><form id="f-news"><input name="title" placeholder="Headline" required><textarea name="body" placeholder="Details" required></textarea><button class="btn orange">Publish</button></form></section>
+<section class="panel"><h2>Add cooling station / tree-planting spot</h2><form id="f-st"><select name="kind"><option value="stay">Safe place to stay (blue)</option><option value="tree">Tree-planting spot (green)</option></select><input name="name" placeholder="Name" required><input name="lat" type="number" step="any" placeholder="Latitude" required><input name="lng" type="number" step="any" placeholder="Longitude" required><input name="note" placeholder="Hours / notes"><button class="btn orange">Add</button></form></section>
+<section class="panel"><h2>Post community activity</h2><form id="f-act"><input name="title" placeholder="Activity" required><textarea name="body" placeholder="Details"></textarea><button class="btn orange">Post</button></form></section>
+<section class="panel"><h2>Emergency contact</h2><form id="f-con"><input name="office" placeholder="Office" required><input name="phone" placeholder="Hotline" required><input name="email" type="email" placeholder="Email" required><button class="btn orange">Save</button></form></section>
+<section class="panel"><h2>Reports from residents</h2>
+<p>Each report shows who sent it, their phone number, and exactly where (GPS link or address).</p>
+<div class="reports-wrap" id="reports"></div></section>
+<p id="ok" aria-live="polite"></p><a class="btn green" href="index.html">View public site</a></div>
+</main>
+<script src="script.js"></script>
+<script>
+/* Admin logic (front-end demo only: real sites need a server login) */
+const ok=m=>$("#ok").textContent=m;
+$("#lf").onsubmit=e=>{e.preventDefault();if($("#pw").value==="admin123"){$("#login").hidden=true;$("#dash").hidden=false;showReports()}else alert("Wrong password")};
+const cs=get("cities");$("#city").innerHTML=cs.map((c,i)=>`<option value="${i}">${c.name}</option>`).join("");
+const fd=e=>Object.fromEntries(new FormData(e.target));
+$("#f-heat").onsubmit=e=>{e.preventDefault();cs[$("#city").value].temp=+$("#temp").value;set("cities",cs);ok("Heat level updated.")};
+$("#f-news").onsubmit=e=>{e.preventDefault();const n=get("news");n.unshift({...fd(e),date:new Date().toISOString().slice(0,10)});set("news",n);e.target.reset();ok("News published.")};
+$("#f-st").onsubmit=e=>{e.preventDefault();const s=get("stations"),d=fd(e);s.push({...d,lat:+d.lat,lng:+d.lng});set("stations",s);e.target.reset();ok("Station added.")};
+$("#f-act").onsubmit=e=>{e.preventDefault();const a=get("acts");a.push(fd(e));set("acts",a);e.target.reset();ok("Activity posted.")};
+$("#f-con").onsubmit=e=>{e.preventDefault();set("contact",fd(e));ok("Contact updated.")};
+
+/* Reports table: phone numbers are tap-to-call, locations open in Google Maps */
+function showReports(){
+  const list=JSON.parse(localStorage.getItem("hj_reports")||"[]").slice().reverse();
+  if(!list.length){$("#reports").innerHTML="<p>No reports yet.</p>";return}
+  $("#reports").innerHTML=`<table class="reports"><tr><th>Time</th><th>Resident</th><th>Phone</th><th>Problem</th><th>Where</th><th>Status</th></tr>`+list.map(r=>{
+    const map=r.lat!==null&&r.lat!==undefined?`<a href="https://www.google.com/maps?q=${r.lat},${r.lng}" target="_blank" rel="noopener">📍 Open GPS location</a><br>`:"";
+    return `<tr><td>${new Date(r.time).toLocaleString()}</td><td>${esc(r.name)}</td><td><a href="tel:${esc(r.phone)}">${esc(r.phone)}</a></td><td><strong>${esc(r.type)}</strong><br>${esc(r.details)}</td><td>${map}${esc(r.address||"")}</td><td><button class="btn green" data-id="${r.id}">${esc(r.status)}</button></td></tr>`}).join("")+"</table>";
+}
+$("#reports").addEventListener("click",e=>{
+  const id=e.target.dataset&&e.target.dataset.id;if(!id)return;
+  const all=JSON.parse(localStorage.getItem("hj_reports")||"[]");
+  const r=all.find(x=>String(x.id)===id);r.status=r.status==="New"?"Resolved":"New";
+  localStorage.setItem("hj_reports",JSON.stringify(all));showReports();
+});
+</script></body></html>

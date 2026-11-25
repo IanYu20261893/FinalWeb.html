@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="HeatJumper helps city governments monitor heat and inform residents.">
+<title>Home | HeatJumper</title>
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <div class="search" role="search"><label class="sr" for="q">Search HeatJumper</label><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search anything…" autocomplete="off"><ul id="results" hidden></ul></div>
+  <h1>“We Care, We love, We Save”</h1>
+  <a class="btn green loginlink" id="loginlink" href="index.html">Log out</a>
+  <img class="logo" src="logo.svg" alt="HEAT logo">
+</header>
+<nav class="navbar" aria-label="Main navigation">
+  <a class="wordmark" href="home.html">HEAT</a>
+  <ul id="menu"><li><a class="link active" href="home.html" aria-current="page">Home</a></li><li><a class="link" href="heatmap.html">Heat Map</a></li><li><a class="link" href="cooling.html">Cooling Station</a></li><li><a class="link" href="information.html">Information</a></li><li><a class="link" href="action.html">Action</a></li></ul>
+</nav>
+<main id="content">
+<section class="panel" id="citybox"></section>
+<section class="panel" id="about"><h2>Welcome to HeatJumper</h2>
+<p>HeatJumper helps city governments monitor heat conditions, inform residents, provide access to cooling stations, and encourage community action against extreme heat.</p></section>
+<section class="panel"><h2>Hottest Countries Right Now</h2><p id="homelive" aria-live="polite">Loading live temperatures…</p><div class="grid" id="heat-preview"></div><p><a class="btn orange" href="heatmap.html">Open the Heat Map</a></p></section>
+<section class="grid">
+<a class="tilelink" href="heatmap.html"><article class="tile"><h3>Heat Map</h3><p>See heat levels in every area of the city.</p></article></a>
+<a class="tilelink" href="cooling.html"><article class="tile"><h3>Cooling Station</h3><p>Find places to rest during extreme heat.</p></article></a>
+<a class="tilelink" href="information.html"><article class="tile"><h3>Information</h3><p>News and advisories from your city.</p></article></a>
+<a class="tilelink" href="action.html"><article class="tile action"><h3>Action</h3><p>Join community activities and report hot spots.</p></article></a></section>
+<section class="panel" style="margin-top:1.5rem" id="contact"></section>
+</main>
+<footer><a href="home.html">HeatJumper</a> • <a href="home.html#about">About</a> • <a href="action.html#contact">Contact</a> • <a href="information.html#refs">References</a></footer>
+<script src="search-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

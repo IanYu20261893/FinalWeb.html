@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="HeatJumper helps city governments monitor heat and inform residents.">
+<title>Log in | HeatJumper</title>
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+    <h1>“We Care, We love, We Save”</h1>
+    <img class="logo" src="logo.svg" alt="HEAT logo">
+</header>
+<main id="content">
+<section class="panel"><h2>Welcome to HeatJumper</h2>
+<p id="authintro"></p>
+<div id="forms">
+  <form id="welcomeback" hidden>
+    <h3 id="wbname">Welcome back</h3>
+    <div id="wbpick" hidden><label for="wbprofile">Profile</label><select id="wbprofile"></select></div>
+    <label for="wpw">Password</label><input id="wpw" name="password" type="password" autocomplete="current-password" required>
+    <button class="btn green" type="submit">Log in</button>
+    <button class="linkbtn" id="newprofile" type="button">Not you? Create a new profile</button></form>
+  <form id="signup" hidden><h3>Create your profile</h3>
+    <label for="n2">Full name</label><input id="n2" name="name" autocomplete="name" required>
+    <label for="p2">Phone number</label><input id="p2" name="phone" type="tel" autocomplete="tel" required>
+    <label for="a2">Home address / barangay</label><input id="a2" name="address" autocomplete="street-address" required>
+    <div id="signup-city"></div>
+    <label for="w2">Password (at least 4 characters)</label><input id="w2" name="password" type="password" minlength="4" autocomplete="new-password" required>
+    <button class="btn orange" type="submit">Create profile</button>
+    <button class="linkbtn" id="backlogin" type="button" hidden>I already have a profile – log in</button></form>
+</div>
+<p id="authmsg" aria-live="polite"></p>
+</section>
+</main>
+<footer>HeatJumper • We Care, We love, We Save</footer>
+<script src="script.js"></script>
+</body>
+</html>

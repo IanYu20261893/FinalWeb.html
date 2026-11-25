@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cooling stations where residents can shelter from extreme heat.">
+<title>Cooling Station | HeatJumper</title>
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="cooling">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <div class="search" role="search"><label class="sr" for="q">Search HeatJumper</label><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search anything…" autocomplete="off"><ul id="results" hidden></ul></div>
+  <h1>“We Care, We love, We Save”</h1>
+  <a class="btn green loginlink" id="loginlink" href="index.html">Log out</a>
+  <img class="logo" src="logo.svg" alt="HEAT logo">
+</header>
+<nav class="navbar" aria-label="Main navigation">
+  <a class="wordmark" href="home.html">HEAT</a>
+  <ul id="menu"><li><a class="link" href="home.html">Home</a></li><li><a class="link" href="heatmap.html">Heat Map</a></li><li><a class="link active" href="cooling.html" aria-current="page">Cooling Station</a></li><li><a class="link" href="information.html">Information</a></li><li><a class="link" href="action.html">Action</a></li></ul>
+</nav>
+<main id="content">
+<section class="panel"><h2>Cooling Stations</h2>
+<p>Zoom into any city in the world: blue shows places to stay cool (libraries, community centers, town halls, drinking water) and green shows parks and green spaces. (Sample pins – confirm with your city before visiting.)</p>
+<div id="map" role="application" aria-label="Map of cooling stations"></div>
+<p id="mapstatus" aria-live="polite"></p>
+<div class="legend"><span><i class="dot" style="background:#1e88e5"></i>Blue = safe place to stay</span><span><i class="dot" style="background:#7cc242"></i>Green = where to plant trees</span></div>
+<h3>Safe places to stay</h3><div class="grid" id="stations"></div>
+<h3>Suggested tree-planting spots</h3><div class="grid" id="trees"></div></section>
+<section class="panel"><h2>Where else can I cool down?</h2><div class="grid">
+<div class="tile"><h3>Barangay Halls</h3><p>Ask for the nearest open hall.</p></div>
+<div class="tile"><h3>Public Libraries</h3><p>Air-conditioned seating during opening hours.</p></div>
+<div class="tile"><h3>Health Centers</h3><p>Help for heat exhaustion and heat stroke.</p></div></div></section>
+<section class="panel" id="contact"></section>
+</main>
+<footer><a href="home.html">HeatJumper</a> • <a href="home.html#about">About</a> • <a href="action.html#contact">Contact</a> • <a href="information.html#refs">References</a></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="search-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

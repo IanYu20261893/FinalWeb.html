@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Interactive live map of heat levels in the city.">
+<title>Heat Map | HeatJumper</title>
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="heatmap">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <div class="search" role="search"><label class="sr" for="q">Search HeatJumper</label><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search anything…" autocomplete="off"><ul id="results" hidden></ul></div>
+  <h1>“We Care, We love, We Save”</h1>
+  <a class="btn green loginlink" id="loginlink" href="index.html">Log out</a>
+  <img class="logo" src="logo.svg" alt="HEAT logo">
+</header>
+<nav class="navbar" aria-label="Main navigation">
+  <a class="wordmark" href="home.html">HEAT</a>
+  <ul id="menu"><li><a class="link" href="home.html">Home</a></li><li><a class="link active" href="heatmap.html" aria-current="page">Heat Map</a></li><li><a class="link" href="cooling.html">Cooling Station</a></li><li><a class="link" href="information.html">Information</a></li><li><a class="link" href="action.html">Action</a></li></ul>
+</nav>
+<main id="content">
+<section class="panel"><h2>Heat Map</h2>
+<p>Every country is colored by its live heat level. Click anywhere on the map to see the exact place and its temperature. Circle color shows the level; pins are cooling stations.</p>
+<div id="map" role="application" aria-label="Interactive heat map"></div>
+<p id="live" aria-live="polite"></p>
+<div class="grid" id="cards"></div><br>
+<div class="legend"><span><i class="dot" style="background:#2f6a17"></i>Caution below 33°C</span><span><i class="dot" style="background:#ffe15a"></i>Extreme caution 33–41°C</span><span><i class="dot" style="background:#ff7a0e"></i>Danger 42°C+</span></div></section>
+</main>
+<footer><a href="home.html">HeatJumper</a> • <a href="home.html#about">About</a> • <a href="action.html#contact">Contact</a> • <a href="information.html#refs">References</a></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="search-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

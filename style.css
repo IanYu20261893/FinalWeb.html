@@ -1,0 +1,505 @@
+/* HeatJumper – style.css | HUMCOM1 | palette: forest green, yellow, orange, off-white */
+:root {
+  --green:#2f6a17;
+  --yellow:#ffe15a;
+  --orange:#ff7a0e;
+  --offwhite:#efeeec;
+  --ink:#1d1d1d;
+  --radius:28px;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  font-family:"Montserrat",Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.5;
+}
+
+.skip {
+  position:absolute;
+  left:-999px;
+}
+
+.skip:focus {
+  left:8px;
+  top:8px;
+  background:var(--yellow);
+  padding:.5rem;
+  z-index:9;
+}
+
+.topbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1100px;
+  margin:auto;
+  padding:1rem 1.5rem;
+}
+
+.topbar h1 {
+  font-size:clamp(1.1rem,2.6vw,1.8rem);
+  margin:0;
+  text-align:center;
+  flex:1;
+}
+
+.logo {
+  width:64px;
+  height:64px;
+  border-radius:50%;
+}
+
+.search {
+  position:relative;
+  width:220px;
+}
+
+.search input {
+  width:100%;
+  padding:.55rem 1rem;
+  border:2px solid var(--green);
+  border-radius:20px;
+  font:inherit;
+  font-size:.9rem;
+}
+
+.search ul {
+  position:absolute;
+  z-index:5000;
+  top:110%;
+  left:0;
+  width:min(340px,90vw);
+  margin:0;
+  padding:.3rem;
+  list-style:none;
+  background:#fff;
+  border:2px solid var(--green);
+  border-radius:14px;
+  box-shadow:0 6px 18px #0003;
+  max-height:320px;
+  overflow:auto;
+}
+
+.search li a {
+  display:block;
+  padding:.5rem .7rem;
+  color:var(--ink);
+  text-decoration:none;
+  border-radius:10px;
+  font-size:.85rem;
+}
+
+.search li a:hover,.search li a:focus {
+  background:var(--yellow);
+}
+
+.search li small {
+  color:var(--green);
+  font-weight:700;
+}
+
+.sr {
+  position:absolute;
+  left:-999px;
+}
+
+.navbar {
+  position:relative;
+  z-index:4000;
+  max-width:1100px;
+  margin:0 auto 1rem;
+  background:var(--green);
+  border-radius:var(--radius);
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1rem 1.5rem;
+}
+
+.wordmark {
+  color:#ffc400;
+  font:900 2.6rem/1 "Arial Black",Arial,sans-serif;
+  text-decoration:none;
+}
+
+.navbar ul {
+  list-style:none;
+  margin:0 0 0 auto;
+  padding:.9rem 1.5rem;
+  display:flex;
+  flex:1;
+  justify-content:space-between;
+  gap:.5rem;
+  background:var(--yellow);
+  border-radius:var(--radius);
+}
+
+.navbar a.link {
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:.85rem;
+  padding:.35rem .9rem;
+  border-radius:20px;
+  transition:.25s;
+}
+
+.navbar a.link:hover,.navbar a.link.active {
+  background:radial-gradient(#3a3a2a,#6b5d1a);
+  box-shadow:0 0 10px #5a4d10;
+}
+
+main {
+  max-width:1100px;
+  margin:auto;
+  padding:0 1.5rem 2rem;
+}
+
+.panel {
+  background:var(--offwhite);
+  border-radius:var(--radius);
+  padding:1.5rem;
+  margin-bottom:1.5rem;
+}
+
+h2 {
+  color:var(--green);
+  margin-top:0;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1rem;
+}
+
+.card {
+  background:var(--yellow);
+  border-radius:20px;
+  padding:1rem 1.2rem;
+  color:var(--green);
+}
+
+.card .temp {
+  font-size:2rem;
+  font-weight:800;
+  margin:0;
+}
+
+.card.danger {
+  background:var(--orange);
+  color:#fff;
+}
+
+.card.caution {
+  background:#cfe6b8;
+}
+
+.tile {
+  background:#fff;
+  border-left:6px solid var(--yellow);
+  padding:1rem;
+  border-radius:4px;
+}
+
+.tile.action {
+  border-left-color:var(--orange);
+}
+
+.tile h3 {
+  margin:.1rem 0;
+  font-size:1.05rem;
+}
+
+.legend {
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--green);
+}
+
+.dot {
+  display:inline-block;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  margin-right:.3rem;
+}
+
+#map {
+  position:relative;
+  z-index:0;
+  height:460px;
+  background:#cfe3f1;
+  border:4px solid var(--green);
+  border-radius:20px;
+  margin:1rem 0;
+}
+
+.btn {
+  display:inline-block;
+  border:0;
+  border-radius:20px;
+  padding:.6rem 1.2rem;
+  font:700 .9rem Montserrat,Arial;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.btn.orange {
+  background:var(--orange);
+  color:#fff;
+}
+
+.btn.green {
+  background:var(--green);
+  color:#fff;
+}
+
+.btn:hover,.btn:focus-visible {
+  transform:translateY(-2px);
+  outline:3px solid var(--yellow);
+}
+
+form {
+  display:grid;
+  gap:.6rem;
+  max-width:560px;
+}
+
+label {
+  font-weight:700;
+  font-size:.85rem;
+}
+
+input,select,textarea {
+  padding:.6rem;
+  border:2px solid var(--green);
+  border-radius:14px;
+  font:inherit;
+}
+
+.news {
+  background:#fff;
+  padding:1rem;
+  border-radius:8px;
+  margin-bottom:.8rem;
+}
+
+.news small {
+  color:#666;
+}
+
+.emergency {
+  background:#fff;
+  border:3px solid var(--orange);
+  border-radius:20px;
+  padding:1rem;
+}
+
+footer {
+  max-width:1100px;
+  margin:0 auto 1.5rem;
+  background:var(--green);
+  color:#fff;
+  text-align:center;
+  font-weight:700;
+  padding:1rem;
+  border-radius:var(--radius);
+}
+
+footer a {
+  color:#fff;
+  text-decoration:none;
+}
+
+footer a:hover {
+  color:var(--yellow);
+}
+
+@media(max-width:760px) {
+  .topbar {
+    flex-wrap:wrap;
+    gap:.5rem;
+  }
+  .search {
+    width:100%;
+    order:3;
+  }
+  .navbar {
+    flex-direction:column;
+  }
+  .navbar ul {
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    border-radius:20px;
+  }
+}
+
+
+/* Temperature labels on the heat map */
+.heat-label {
+  font-weight:700;
+  font-size:.8rem;
+  color:var(--green);
+  border:2px solid var(--green);
+  border-radius:12px;
+}
+
+/* Account button, report table */
+.loginlink {
+  margin:0 .6rem;
+  white-space:nowrap;
+}
+
+.reports {
+  width:100%;
+  border-collapse:collapse;
+  font-size:.85rem;
+  background:#fff;
+}
+
+.reports th, .reports td {
+  border:1px solid #ddd;
+  padding:.4rem .5rem;
+  text-align:left;
+  vertical-align:top;
+}
+
+.reports th {
+  background:var(--green);
+  color:#fff;
+}
+
+.reports-wrap {
+  overflow-x:auto;
+}
+
+/* Search bar (top-left, where the old menu icon was) */
+.search {
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  flex:0 0 300px;
+  width:300px;
+  background:#fff;
+  border:3px solid var(--green);
+  border-radius:28px;
+  padding:0 .9rem;
+}
+
+.search input {
+  flex:1;
+  border:0;
+  outline:0;
+  padding:.65rem .2rem;
+  background:transparent;
+  font:inherit;
+  font-weight:600;
+}
+
+.search:focus-within {
+  box-shadow:0 0 0 4px var(--yellow);
+}
+
+/* Highlight on the page you land on after searching */
+.found {
+  outline:4px solid var(--orange);
+  background:#fff3c4;
+  animation:flash 1.2s 3;
+}
+
+@keyframes flash {
+  50% { background:var(--yellow); }
+}
+
+/* City picker + map pin */
+.row {
+  display:flex;
+  gap:.5rem;
+  flex-wrap:wrap;
+}
+
+.cres {
+  display:grid;
+  gap:.4rem;
+  margin:.4rem 0;
+}
+
+.choice {
+  background:#fff;
+  border:2px solid var(--green);
+  border-radius:12px;
+  padding:.4rem .6rem;
+  font-weight:600;
+}
+
+.city-pin {
+  font-size:32px;
+  line-height:32px;
+  text-shadow:0 2px 4px #0006;
+}
+
+@media (max-width:760px) {
+  .search {
+    flex:1 1 100%;
+    width:100%;
+    order:3;
+  }
+}
+/* Home-page tiles are links */
+.tilelink {
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+
+.tilelink .tile {
+  height:100%;
+  transition:.2s;
+}
+
+.tilelink:hover .tile,.tilelink:focus-visible .tile {
+  transform:translateY(-3px);
+  box-shadow:0 6px 14px #0002;
+}
+
+/* Text-style button on the login page */
+.linkbtn {
+  background:none;
+  border:0;
+  padding:.3rem 0;
+  color:var(--green);
+  font:700 .85rem Montserrat,Arial;
+  text-decoration:underline;
+  cursor:pointer;
+  text-align:left;
+}
+
+/* Message drawn on top of the map when pictures cannot load */
+.map-notice {
+  position:absolute;
+  z-index:800;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  max-width:80%;
+  background:#fff;
+  color:var(--ink);
+  border:3px solid var(--orange);
+  border-radius:16px;
+  padding:.8rem 1rem;
+  font-weight:700;
+  text-align:center;
+}
+
